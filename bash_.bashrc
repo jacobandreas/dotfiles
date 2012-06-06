@@ -41,16 +41,18 @@ esac
 
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+#if [ -x /usr/bin/dircolors ]; then
+#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#    alias ls='ls --color=auto'
+#    #alias dir='dir --color=auto'
+#    #alias vdir='vdir --color=auto'
+#
+#    alias grep='grep --color=auto'
+#    alias fgrep='fgrep --color=auto'
+#    alias egrep='egrep --color=auto'
+#fi
+alias ls='ls --color=auto -v'
+alias egrep='egrep --color=auto'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -66,11 +68,12 @@ fi
 
 # aliases
 alias l='ls'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias u='cd ..'
-alias h='cd ~'
+alias ll='l -l'
+alias la='l -a'
+alias lla='l -la'
+alias c='cd'
+alias u='c ..'
+alias h='c ~'
 alias s='sudo'
 alias q='exit'
 alias bye='exit'
@@ -79,15 +82,16 @@ alias so='sudo shutdown -hP now'
 alias sr='sudo reboot'
 alias ss='sudo hibernate'
 alias a='apropos'
-alias c='cd'
-alias ac='apt-cache'
-alias ag='sudo apt-get'
-alias g='grep'
-alias lg='ls | grep'
+alias pm='sudo pacman -S'
+alias pms='pacman -Ss'
+alias g='egrep'
+alias lg='l | g'
+alias ng='find . | g'
 alias p='ps -u ${USER} -H'
 alias psg='ps -ef | grep'
-alias sl='sl -e'
 alias o='xdg-open'
+alias m='$EDITOR'
+alias vim='echo "that is not what you meant"'
 
 source $HOME/.bash_apparix
 
@@ -100,3 +104,4 @@ EDITOR=/usr/bin/vim
 #TERM=xterm-color
 
 set -o vi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
