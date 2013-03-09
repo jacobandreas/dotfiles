@@ -6,8 +6,15 @@ PATH=$PATH:/home/jacob/.cabal/bin # cabal installations
 
 # prompt and colors
 
+Z_HOST_COLOR=green
+Z_HOSTNAME=`hostname`
+if [ "$Z_HOSTNAME" = "jacob.xen.prgmr.com" ]; then
+  Z_HOSTNAME=vps
+  Z_HOST_COLOR=magenta
+fi
+
 PROMPT="
-%F{green}%m: %F{blue}%~ %F{reset}at %F{yellow}%*
+%F{$Z_HOST_COLOR}$Z_HOSTNAME: %F{blue}%~ %F{reset}at %F{yellow}%*
 %F{reset}%# "
 
 eval `dircolors ~/.dir_colors`
