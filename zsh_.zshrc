@@ -50,7 +50,7 @@ VISUAL=vim
 
 # aliases
 
-alias ls='ls --color=auto -v'
+alias ls='ls --color=auto -v --group-directories-first'
 alias egrep='egrep --color=auto'
 alias less='less -R'
 alias ll='ls -l'
