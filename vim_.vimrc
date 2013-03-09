@@ -1,4 +1,3 @@
-
 " runtime
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 call pathogen#infect()
@@ -97,3 +96,6 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
   endif
 endfunction
+
+command -range=% Xy :<line1>,<line2>!tee >(xclip -i -sel clipboard)
+command Xp r!xclip -o -sel clipboard
