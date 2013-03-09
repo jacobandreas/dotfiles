@@ -20,16 +20,17 @@ set laststatus=2
 
 " clipboard
 set ruler
+set cursorline
 
 " gui
+colorscheme solarized
 set guioptions=
+call togglebg#map("<F5>") 
 set background=dark
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-endif
-set gfn=Droid\ Sans\ Mono\ 8
-set cursorline
+" if has('gui_running')
+"   set background=dark
+" endif
+set gfn=Inconsolata\ 10
 set mousehide
 "set mouse=a
 set textwidth=80
@@ -49,7 +50,7 @@ set smarttab
 "set tw=80
 
 " whitespace
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
 
 " folding
 " set foldmethod=syntax
@@ -66,12 +67,15 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 "let g:Tex_ViewRule_pdf='apvlv 2>/dev/null'
-let g:Tex_ViewRule_pdf='evince 2>/dev/null'
+"let g:Tex_ViewRule_pdf='evince 2>/dev/null'
+"let g:Tex_ViewRule_pdf='okular 2>/dev/null'
 let g:Tex_IgnoredWarnings = "Font Warning\nUnderfull"
+let g:Tex_MultipleCompileFormats='pdf'
 
 " custom bindings
 nmap <leader>w :set list!<CR>
 nmap <leader>h :noh<CR>
+nmap <leader>t :NERDTree<CR>
 map . .`[
 nmap , :b 
 
@@ -79,7 +83,7 @@ nmap , :b
 " au BufAdd,BufNewFile,BufRead * nested tab sball
 
 " environment
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 " Close all open buffers on entering a window if the only

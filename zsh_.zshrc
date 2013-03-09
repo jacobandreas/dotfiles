@@ -1,45 +1,72 @@
+# PATH
+
+PATH=$PATH:/home/jacob/.gem/ruby/1.9.1/bin # local ruby
+PATH=$PATH:/home/jacob/.local/bin # my scripts
+PATH=$PATH:/home/jacob/.cabal/bin # cabal installations
+
+# prompt and colors
+
+PROMPT="
+%F{green}%m: %F{blue}%~ %F{reset}at %F{yellow}%*
+%F{reset}%# "
+
+eval `dircolors ~/.dir_colors`
+
+# vi keybindings
+
+set -o vi
+bindkey "^r" history-incremental-search-backward
+
+# autocomplete & history
+
 zstyle :compinstall filename '/home/jacob/.zshrc'
 autoload -Uz compinit
+zmodload -a colors
+zmodload -a autocomplete
+zmodload -a complist
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 compinit
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd extendedglob notify
 
-bindkey "^r" history-incremental-search-backward
-set -o vi
-#bindkey -v
+setopt inc_append_history
+setopt share_history
+
+# default programs
 
 EDITOR=vim
+VISUAL=vim
 
-PROMPT="%m%# "
-RPROMPT="%~ @%*"
+# aliases
 
 alias ls='ls --color=auto -v'
 alias egrep='egrep --color=auto'
-alias l='ls'
-alias ll='l -l'
-alias la='l -a'
-alias lla='l -la'
-alias c='cd'
-alias u='c ..'
-alias h='c ~'
+alias less='less -R'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+#alias c='cd'
 alias s='sudo'
 alias q='exit'
-alias bye='exit'
-alias :q='exit'
-alias so='sudo shutdown -hP now'
-alias sr='sudo reboot'
-alias ss='sudo hibernate'
+alias qq='tmux kill-session'
 alias a='apropos'
 alias pm='sudo pacman -S'
 alias pms='pacman -Ss'
+alias pmu='yaourt --aur -Syu'
 alias g='egrep'
-alias lg='l | g'
+alias lg='ls | g'
 alias ng='find . | g'
 alias p='ps -u ${USER} -H'
-alias psg='ps -ef | grep'
 alias o='xdg-open'
-alias m='$EDITOR'
+alias m="$EDITOR"
+alias py="ipython console"
+alias py2="ipython2 console"
 
-eval `dircolors ~/.dir_colors`
+# make tmux play nice
+
+if [[ -n "$TMUX_PANE" ]]; then 
+  unset DBUS_SESSION_BUS_ADDRESS
+fi
+stty ixoff -ixon
