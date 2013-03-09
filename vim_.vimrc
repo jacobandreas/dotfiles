@@ -33,7 +33,9 @@ set gfn=Inconsolata\ 10
 set mousehide
 "set mouse=a
 set textwidth=80
-set cc=+1
+if version >= 703
+  set cc=+1
+endif
 
 " search
 runtime macros/matchit.vim
