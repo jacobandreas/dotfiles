@@ -4,6 +4,8 @@ PATH=$PATH:/home/jacob/.gem/ruby/1.9.1/bin # local ruby
 PATH=$PATH:/home/jacob/.local/bin # my scripts
 PATH=$PATH:/home/jacob/.cabal/bin # cabal installations
 
+PYTHONPATH=/usr/lib/python3.3/site-packages
+
 # prompt and colors
 
 PROMPT="
@@ -60,6 +62,7 @@ alias lg='ls | g'
 alias ng='find . | g'
 alias p='ps -u ${USER} -H'
 alias o='xdg-open'
+alias vim='vim -X'
 alias m="$EDITOR"
 alias py="ipython console"
 alias py2="ipython2 console"
