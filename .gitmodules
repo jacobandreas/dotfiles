@@ -10,6 +10,3 @@
 [submodule "vim_.vim/bundle/supertab"]
 	path = vim_.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim_.vim/bundle/vim-ipython"]
-	path = vim_.vim/bundle/vim-ipython
-	url = https://github.com/ivanov/vim-ipython.git
