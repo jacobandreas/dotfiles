@@ -17,7 +17,6 @@ set number
 set hidden
 set laststatus=2
 
-" clipboard
 set ruler
 set cursorline
 
@@ -65,11 +64,15 @@ filetype indent on
 " * grep
 set grepprg=grep\ -nH\ $*
 " * LaTeX
-let g:tex_flavor='latex'
+"let g:tex_flavor='latex'
+"let g:tex_flavor='xelatex'
 let g:Tex_DefaultTargetFormat='pdf'
+"let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
+let g:TexCompileRule_pdf='pdflatex --interaction=nonstopmode $*'
 "let g:Tex_ViewRule_pdf='apvlv 2>/dev/null'
 "let g:Tex_ViewRule_pdf='evince 2>/dev/null'
 "let g:Tex_ViewRule_pdf='okular 2>/dev/null'
+let g:Tex_ViewRule_pdf='open'
 let g:Tex_IgnoredWarnings = "Font Warning\nUnderfull"
 let g:Tex_MultipleCompileFormats='pdf'
 
@@ -99,5 +102,7 @@ function! s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
-command -range=% Xy :<line1>,<line2>!tee >(xclip -i -sel clipboard)
-command Xp r!xclip -o -sel clipboard
+"command -range=% Xy :<line1>,<line2>!tee >(xclip -i -sel clipboard)
+"command Xp r!xclip -o -sel clipboard
+
+set clipboard=unnamed

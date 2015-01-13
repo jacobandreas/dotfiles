@@ -1,12 +1,10 @@
 # PATH
 
-PATH=$PATH:/home/jacob/.gem/ruby/1.9.1/bin # local ruby
-PATH=$PATH:/home/jacob/.local/bin # my scripts
-PATH=$PATH:/home/jacob/.cabal/bin # cabal installations
+PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin # local ruby
+PATH=$PATH:$HOME/.local/bin # my scripts
+PATH=$PATH:$HOME/.cabal/bin # cabal installations
 
-PYTHONPATH=/usr/lib/python3.3/site-packages
-
-eval `dircolors ~/.dir_colors`
+eval `gdircolors ~/.dir_colors`
 
 # vi keybindings
 
@@ -15,7 +13,7 @@ bindkey "^r" history-incremental-search-backward
 
 # autocomplete & history
 
-zstyle :compinstall filename '/home/jacob/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 zmodload -a colors
 zmodload -a autocomplete
@@ -35,9 +33,14 @@ setopt share_history
 EDITOR=vim
 VISUAL=vim
 
+# other envvars
+
+export NLTK_DATA=/Users/jda/Library/nltk
+export SCIKIT_LEARN_DATA=/Users/jda/Library/scikit_learn
+
 # aliases
 
-alias ls='ls --color=auto -v --group-directories-first'
+alias ls='gls --color=auto -v --group-directories-first'
 alias egrep='egrep --color=auto'
 alias less='less -R'
 alias ll='ls -l'
@@ -55,8 +58,9 @@ alias g='egrep'
 alias lg='ls | g'
 alias ng='find . | g'
 alias p='ps -u ${USER} -H'
-alias o='xdg-open'
-alias vim='vim -X'
+#alias o='xdg-open'
+alias o='reattach-to-user-namespace open'
+#alias vim='vim -X'
 alias m="$EDITOR"
 alias py="ipython console"
 alias py2="ipython2 console"
@@ -99,4 +103,6 @@ fi
 PROMPT='
 %F{$Z_HOST_COLOR}$Z_HOSTNAME: %F{blue}%~%F{cyan}$(prompt_git_info) %F{reset}at %F{yellow}%*
 %F{reset}%# '
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 

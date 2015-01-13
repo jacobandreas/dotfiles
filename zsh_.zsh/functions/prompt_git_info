@@ -12,6 +12,7 @@ if [ -n "$__CURRENT_GIT_BRANCH" ]; then
         s+=" ↓"
         ;;
     esac
+    #s+=" $__CURRENT_GIT_BRANCH_STATUS"
     if [ -n "$__CURRENT_GIT_BRANCH_IS_DIRTY" ]; then
         s+=" +"
     fi
