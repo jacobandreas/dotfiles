@@ -108,4 +108,4 @@ export GRB_LICENSE_FILE=/Users/jda/Library/gurobi/gurobi.lic
 
 eval `dircolors ~/.dir_colors`
 
-source .zshrc_local
+source $HOME/.zshrc_local
