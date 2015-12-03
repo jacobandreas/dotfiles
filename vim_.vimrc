@@ -16,6 +16,7 @@ set ruler
 set number
 set hidden
 set laststatus=2
+set backspace=indent,eol,start
 
 set ruler
 set cursorline
@@ -67,12 +68,12 @@ set grepprg=grep\ -nH\ $*
 "let g:tex_flavor='latex'
 "let g:tex_flavor='xelatex'
 let g:Tex_DefaultTargetFormat='pdf'
-"let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
-let g:TexCompileRule_pdf='pdflatex --interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
+"let g:TexCompileRule_pdf='pdflatex --interaction=nonstopmode $*'
 "let g:Tex_ViewRule_pdf='apvlv 2>/dev/null'
 "let g:Tex_ViewRule_pdf='evince 2>/dev/null'
 "let g:Tex_ViewRule_pdf='okular 2>/dev/null'
-let g:Tex_ViewRule_pdf='open'
+let g:Tex_ViewRule_pdf='/Applications/Preview.app/Contents/MacOS/Preview'
 let g:Tex_IgnoredWarnings = "Font Warning\nUnderfull"
 let g:Tex_MultipleCompileFormats='pdf'
 

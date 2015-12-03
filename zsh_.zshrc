@@ -1,10 +1,11 @@
 # PATH
 
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:/usr/local/texlive/2013/bin/universal-darwin
 PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin # local ruby
 PATH=$PATH:$HOME/.local/bin # my scripts
 PATH=$PATH:$HOME/.cabal/bin # cabal installations
 
-eval `gdircolors ~/.dir_colors`
 
 # vi keybindings
 
@@ -40,7 +41,7 @@ export SCIKIT_LEARN_DATA=/Users/jda/Library/scikit_learn
 
 # aliases
 
-alias ls='gls --color=auto -v --group-directories-first'
+alias ls='ls --color=auto -v --group-directories-first'
 alias egrep='egrep --color=auto'
 alias less='less -R'
 alias ll='ls -l'
@@ -58,12 +59,11 @@ alias g='egrep'
 alias lg='ls | g'
 alias ng='find . | g'
 alias p='ps -u ${USER} -H'
-#alias o='xdg-open'
-alias o='reattach-to-user-namespace open'
-#alias vim='vim -X'
+alias o='xdg-open'
+#alias o='reattach-to-user-namespace open'
 alias m="$EDITOR"
-alias py="ipython console"
-alias py2="ipython2 console"
+#alias py="ipython console"
+#alias py2="ipython2 console"
 
 # make tmux play nice
 
@@ -104,5 +104,8 @@ PROMPT='
 %F{$Z_HOST_COLOR}$Z_HOSTNAME: %F{blue}%~%F{cyan}$(prompt_git_info) %F{reset}at %F{yellow}%*
 %F{reset}%# '
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+export GRB_LICENSE_FILE=/Users/jda/Library/gurobi/gurobi.lic
 
+eval `dircolors ~/.dir_colors`
+
+source .zshrc_local
