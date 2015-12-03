@@ -13,3 +13,6 @@
 [submodule "vim-ipython-mine"]
 	path = vim_.vim/bundle/vim-ipython
 	url = git@github.com:jacobandreas/vim-ipython.git
+[submodule "vim_.vim/bundle/vim-airline"]
+	path = vim_.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
