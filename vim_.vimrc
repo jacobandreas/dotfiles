@@ -107,3 +107,5 @@ endfunction
 "command Xp r!xclip -o -sel clipboard
 
 set clipboard=unnamed
+
+au FileType python setl sw=4 sts=4 et
