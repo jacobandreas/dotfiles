@@ -22,14 +22,14 @@ set ruler
 set cursorline
 
 " gui
-colorscheme solarized
-set guioptions=
-call togglebg#map("<F5>") 
-set background=dark
-" if has('gui_running')
-"   set background=dark
-" endif
-set gfn=Inconsolata\ 10
+colorscheme base16-default
+" set guioptions=
+" call togglebg#map("<F5>") 
+" set background=dark
+" " if has('gui_running')
+" "   set background=dark
+" " endif
+" set gfn=Inconsolata\ 10
 set mousehide
 "set mouse=a
 set textwidth=80
@@ -68,8 +68,8 @@ set grepprg=grep\ -nH\ $*
 "let g:tex_flavor='latex'
 "let g:tex_flavor='xelatex'
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
-"let g:TexCompileRule_pdf='pdflatex --interaction=nonstopmode $*'
+"let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
+let g:TexCompileRule_pdf='pdflatex --interaction=nonstopmode $*'
 "let g:Tex_ViewRule_pdf='apvlv 2>/dev/null'
 "let g:Tex_ViewRule_pdf='evince 2>/dev/null'
 "let g:Tex_ViewRule_pdf='okular 2>/dev/null'
@@ -109,3 +109,11 @@ endfunction
 set clipboard=unnamed
 
 au FileType python setl sw=4 sts=4 et
+
+let g:airline_powerline_fonts = 1
+"vim-airline"
+" let g:airline#extensions#tabline#enabled = 1
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
